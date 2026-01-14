@@ -1,0 +1,36 @@
+{
+  "name": "superpowers-laravel",
+  "version": "0.1.0",
+  "description": "A Laravel 12 focused toolkit for Claude Code providing Actions architecture, Pest testing, Eloquent patterns, queues, caching, validation, and API resources.",
+  "author": "MakFly",
+  "license": "MIT",
+  "homepage": "https://github.com/MakFly/superpowers-laravel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MakFly/superpowers-laravel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MakFly/superpowers-laravel/issues"
+  },
+  "keywords": [
+    "laravel",
+    "php",
+    "pest",
+    "eloquent",
+    "queues",
+    "cache",
+    "validation",
+    "api",
+    "skills",
+    "claude-code",
+    "plugin"
+  ],
+  "engines": {
+    "claude-code": ">=2.0.0"
+  },
+  "categories": [
+    "frameworks",
+    "testing",
+    "productivity"
+  ]
+}
