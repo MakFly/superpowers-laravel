@@ -24,7 +24,4 @@ description: Use when laravel api authentication
 - Load reference/examples only on explicit request
 ## References
 - `reference.md`
-- `examples.md`
 - `docs/complexity-tiers.md`
-- `docs/project-examples.md`
-- `docs/project-catalog.md`
