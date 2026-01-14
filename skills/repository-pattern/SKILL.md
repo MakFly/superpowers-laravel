@@ -1,10 +1,10 @@
 ---
 name: laravel:repository-pattern
-description: Use when laravel repository pattern
 allowed-tools:
   - Read
   - Glob
   - Grep
+description: Use when laravel repository pattern
 ---
 
 # laravel:repository-pattern (Micro)
@@ -12,14 +12,12 @@ allowed-tools:
 ## Use when
 - Use when laravel repository pattern
 
-## Do
-- Keep changes minimal and focused
-- Ask before running servers/builds/tests
-- Follow existing project conventions
-
-## Avoid
-- Unnecessary context expansion
-- Changing unrelated files
+## Rules
+- Ask before running servers/builds/tests; keep changes minimal
 
 ## References
-- `reference.md` for full details
+- `reference.md`
+- `examples.md`
+- `docs/complexity-tiers.md`
+- `docs/project-examples.md`
+- `docs/project-catalog.md`

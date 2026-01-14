@@ -1,10 +1,10 @@
 ---
 name: laravel:using-laravel-superpowers
-description: Use when laravel using laravel superpowers
 allowed-tools:
   - Read
   - Glob
   - Grep
+description: Use when laravel using laravel superpowers
 ---
 
 # laravel:using-laravel-superpowers (Micro)
@@ -12,16 +12,12 @@ allowed-tools:
 ## Use when
 - Use when laravel using laravel superpowers
 
-## Do
-- Keep changes minimal and focused
-- Ask before running servers/builds/tests
-- Follow existing project conventions
-
-## Avoid
-- Unnecessary context expansion
-- Changing unrelated files
+## Rules
+- Ask before running servers/builds/tests; keep changes minimal
 
 ## References
-- `reference.md` for full details
-- `docs/complexity-tiers.md` for simple/medium/complex examples
-- `docs/project-examples.md` for generic project examples
+- `reference.md`
+- `examples.md`
+- `docs/complexity-tiers.md`
+- `docs/project-examples.md`
+- `docs/project-catalog.md`
