@@ -2,6 +2,8 @@
 
 A Laravel 12 focused toolkit for Claude Code providing Actions architecture, Pest testing, Eloquent patterns, queues, caching, validation, and API resources.
 
+**Complexity tiers**: See `docs/complexity-tiers.md` for simple/medium/complex examples and how to adapt output.
+
 ## Installation
 
 ```bash
