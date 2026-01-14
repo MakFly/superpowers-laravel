@@ -24,3 +24,4 @@ allowed-tools:
 ## References
 - `reference.md` for full details
 - `docs/complexity-tiers.md` for simple/medium/complex examples
+- `docs/project-examples.md` for generic project examples
