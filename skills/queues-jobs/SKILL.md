@@ -1,5 +1,4 @@
 ---
-
 name: laravel:queues-jobs
 allowed-tools:
   - Read
@@ -8,36 +7,31 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for queues jobs with focused implementation guidance and validation.
+description: Build reliable Laravel queued jobs and async workflows with idempotency, retries, failure handling, and observability.
 ---
 
-# Queues Jobs (Laravel)
+# Queues and Jobs (Laravel)
 
 ## Use when
-- The task explicitly involves queues jobs in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Offloading slow work (notifications, integrations, media, heavy compute).
+- Fixing retry/failure behavior in async pipelines.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Define async boundary and payload contract.
+2. Ensure job idempotency (dedupe key or safe re-run semantics).
+3. Configure queue connection, retries, backoff, timeout, and failure hooks.
+4. Handle partial failures with explicit compensating behavior.
+5. Add tests for dispatch, handler behavior, and failure paths.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
-
-## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Never pass huge mutable models; pass IDs/immutable payload.
+- Keep side effects explicit and retry-safe.
+- Instrument failures and dead-letter handling.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- Job/queue config changes.
+- Retry/backoff/idempotency decisions.
+- Validation commands and async test outcomes.
 
 ## References
 - `reference.md`

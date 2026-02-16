@@ -1,5 +1,4 @@
 ---
-
 name: laravel:policies-gates
 allowed-tools:
   - Read
@@ -8,36 +7,31 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for policies gates with focused implementation guidance and validation.
+description: Implement Laravel authorization with policies and gates that enforce domain ownership and role-based constraints consistently.
 ---
 
-# Policies Gates (Laravel)
+# Policies and Gates (Laravel)
 
 ## Use when
-- The task explicitly involves policies gates in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Securing CRUD or workflow transitions.
+- Centralizing authorization logic currently spread across controllers.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Map actors, resources, and actions (`view`, `create`, `update`, `delete`, domain actions).
+2. Implement policy methods with explicit deny reasons when useful.
+3. Wire controller/resource authorization via `authorize`, middleware, or `can`.
+4. Add policy tests for owner/non-owner/admin edge cases.
+5. Confirm unauthorized paths return expected status and payload.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
-
-## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Never rely on front-end-only access control.
+- Keep authorization separate from validation/business logic.
+- Check both resource ownership and action eligibility state.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- Policies/gates added or updated.
+- Entry points enforcing authorization.
+- Test matrix and uncovered edges.
 
 ## References
 - `reference.md`

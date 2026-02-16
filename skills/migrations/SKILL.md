@@ -1,5 +1,4 @@
 ---
-
 name: laravel:migrations
 allowed-tools:
   - Read
@@ -8,36 +7,31 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for migrations with focused implementation guidance and validation.
+description: Create safe Laravel database migrations with backward-compatible rollout strategy, data integrity protections, and rollback awareness.
 ---
 
 # Migrations (Laravel)
 
 ## Use when
-- The task explicitly involves migrations in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Adding/changing schema in active environments.
+- Planning rollout-safe DB changes with minimal downtime.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Define migration objective and backward-compatibility constraints.
+2. Split risky changes into additive -> backfill -> switch -> cleanup phases.
+3. Add indexes/constraints intentionally with naming discipline.
+4. Validate rollback feasibility and data-loss implications.
+5. Test migration up/down in local or CI DB.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
-
-## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Avoid destructive one-step migrations in production paths.
+- Never assume instant lock-free schema changes on large tables.
+- Pair schema changes with code rollout order.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- Migration plan and sequencing.
+- Commands run and outcomes.
+- Rollback and operational risk notes.
 
 ## References
 - `reference.md`

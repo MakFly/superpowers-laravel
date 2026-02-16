@@ -1,5 +1,4 @@
 ---
-
 name: laravel:api-authentication
 allowed-tools:
   - Read
@@ -8,36 +7,33 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for api authentication with focused implementation guidance and validation.
+description: Implement secure Laravel API authentication flows (token/session, refresh, revocation) with explicit threat-aware validation and tests.
 ---
 
-# Api Authentication (Laravel)
+# API Authentication (Laravel)
 
 ## Use when
-- The task explicitly involves api authentication in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Building or fixing login/register/logout/refresh endpoints.
+- Hardening token lifecycle, guards, or auth middleware behavior.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Identify active auth stack (Sanctum, Passport, JWT, session) from config and routes.
+2. Define auth contract: login input, issued token/session shape, expiration, revocation.
+3. Enforce validation + throttling + lockout behavior.
+4. Implement guard-safe flows (web/api separation) and standardized auth errors.
+5. Add feature tests for success, invalid creds, expired/revoked token, unauthorized access.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
-
-## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Never leak whether email/username exists.
+- Rotate refresh credentials where supported.
+- Revoke tokens on logout/password reset events.
+- Apply rate limiting on auth endpoints.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- Auth scheme detected and chosen behavior.
+- Endpoints/middleware changed.
+- Tests added/updated and command results.
+- Remaining risk (session fixation, replay windows, etc.).
 
 ## References
 - `reference.md`

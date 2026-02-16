@@ -1,5 +1,4 @@
 ---
-
 name: laravel:api-resources
 allowed-tools:
   - Read
@@ -8,36 +7,31 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for api resources with focused implementation guidance and validation.
+description: Design and implement Laravel API Resources as stable response contracts with predictable shape, conditional fields, and relationship loading discipline.
 ---
 
-# Api Resources (Laravel)
+# API Resources (Laravel)
 
 ## Use when
-- The task explicitly involves api resources in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Creating or changing JSON response contracts.
+- Replacing ad-hoc controller arrays with consistent resource classes.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Define response contract first (required fields, nullable fields, relationship blocks).
+2. Implement `JsonResource`/`ResourceCollection` for each contract boundary.
+3. Use `whenLoaded`, `when`, `mergeWhen` for conditional fields.
+4. Ensure controller/query layer eager-loads exactly what resource requires.
+5. Add feature tests that assert JSON structure and key invariants.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
-
-## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Avoid leaking internal DB fields.
+- Keep formatting logic in resources, not controllers.
+- Avoid triggering lazy loads inside resources.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- Resource classes introduced/updated.
+- Controller/query changes for loading strategy.
+- JSON contract tests and outcomes.
 
 ## References
 - `reference.md`

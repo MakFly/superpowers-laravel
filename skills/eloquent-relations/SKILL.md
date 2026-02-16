@@ -1,40 +1,37 @@
 ---
-
 name: laravel:eloquent-relations
 allowed-tools:
   - Read
+  - Write
+  - Edit
+  - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for eloquent relations with focused implementation guidance and validation.
+description: Model and optimize Laravel Eloquent relationships with correct cardinality, constraints, eager loading, and query performance.
 ---
 
 # Eloquent Relations (Laravel)
 
 ## Use when
-- The task explicitly involves eloquent relations in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Designing new model relationships.
+- Fixing N+1 issues or incorrect relation semantics.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Define cardinality and ownership (`hasOne`, `hasMany`, `belongsTo`, `morph*`).
+2. Encode FK constraints and cascading rules in migrations.
+3. Implement relation methods with explicit keys where non-standard.
+4. Optimize query paths with eager loading and constrained loads.
+5. Add tests validating relation integrity and serialization behavior.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
-
-## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Avoid hidden lazy loads in loops/resources.
+- Keep relation naming consistent and domain-meaningful.
+- Ensure DB constraints match model intent.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- Relations and schema changes.
+- Performance considerations applied.
+- Tests for integrity and query behavior.
 
 ## References
 - `reference.md`

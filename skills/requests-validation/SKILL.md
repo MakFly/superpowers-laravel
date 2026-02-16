@@ -1,5 +1,4 @@
 ---
-
 name: laravel:requests-validation
 allowed-tools:
   - Read
@@ -8,36 +7,31 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for requests validation with focused implementation guidance and validation.
+description: Build robust Laravel request validation using FormRequest classes, custom rules, and clear domain-safe error contracts.
 ---
 
 # Requests Validation (Laravel)
 
 ## Use when
-- The task explicitly involves requests validation in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Adding or modifying input validation on create/update/search endpoints.
+- Migrating controller-inline validation to FormRequest.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Introduce/extend `FormRequest` class per endpoint intent.
+2. Encode rules, normalization, and authorization gate in one place.
+3. Add custom rule objects for reusable domain constraints.
+4. Standardize validation error payload shape.
+5. Cover valid/invalid payload permutations with feature tests.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
-
-## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Do not duplicate rules across controllers/services.
+- Prefer explicit whitelisting over permissive arrays.
+- Keep cross-field constraints in custom rules or after hooks.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- FormRequest and rule changes.
+- Error contract behavior.
+- Test coverage and failures prevented.
 
 ## References
 - `reference.md`

@@ -1,5 +1,4 @@
 ---
-
 name: laravel:tdd-with-pest
 allowed-tools:
   - Read
@@ -8,36 +7,31 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply RED-GREEN-REFACTOR with Pest in Laravel, producing minimal safe implementation and strong tests.
+description: Drive Laravel feature development with Pest using strict RED-GREEN-REFACTOR loops and high-signal test design.
 ---
 
-# Tdd With Pest (Laravel)
+# TDD with Pest (Laravel)
 
 ## Use when
-- The task explicitly involves tdd with pest in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Implementing new behavior where regressions are costly.
+- Fixing bugs with reproducible failing tests.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Write a failing Pest test that captures expected behavior and edge case.
+2. Implement minimal code to make the test pass.
+3. Refactor for readability/design without changing behavior.
+4. Expand test coverage for boundary cases and authorization/validation paths.
+5. Run targeted then broader suite.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
-
-## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- No implementation before a failing test (except setup scaffolding).
+- Keep tests deterministic and isolated.
+- Avoid asserting implementation details over behavior.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- RED test introduced.
+- GREEN implementation summary.
+- REFACTOR changes and final validation results.
 
 ## References
 - `reference.md`
