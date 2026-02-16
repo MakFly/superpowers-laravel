@@ -7,31 +7,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Build reliable Laravel queued jobs and async workflows with idempotency, retries, failure handling, and observability.
+description: Implement reliable Laravel async workflows (queues/events/cache) with idempotency and failure handling. Use for queues jobs tasks.
 ---
 
-# Queues and Jobs (Laravel)
+# Queues Jobs (Laravel)
 
 ## Use when
-- Offloading slow work (notifications, integrations, media, heavy compute).
-- Fixing retry/failure behavior in async pipelines.
+- Offloading heavy work to queues/events/cache workflows.
+- Stabilizing retries, idempotency, and failure handling.
 
 ## Default workflow
-1. Define async boundary and payload contract.
-2. Ensure job idempotency (dedupe key or safe re-run semantics).
-3. Configure queue connection, retries, backoff, timeout, and failure hooks.
-4. Handle partial failures with explicit compensating behavior.
-5. Add tests for dispatch, handler behavior, and failure paths.
+1. Define async payload contract and idempotency strategy.
+2. Implement handler/job with explicit retry/backoff behavior.
+2. Configure observability and failure handling.
+2. Verify dispatch + execution + failure paths with tests.
 
 ## Guardrails
-- Never pass huge mutable models; pass IDs/immutable payload.
-- Keep side effects explicit and retry-safe.
+- Do not pass oversized mutable payloads.
+- Assume at-least-once delivery and code for safe retries.
 - Instrument failures and dead-letter handling.
 
+## Progressive disclosure
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
+
 ## Output contract
-- Job/queue config changes.
-- Retry/backoff/idempotency decisions.
-- Validation commands and async test outcomes.
+- Async components changed and queue/cache strategy.
+- Retry/backoff/failure decisions.
+- Validation evidence for success and failure paths.
 
 ## References
 - `reference.md`

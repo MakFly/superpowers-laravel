@@ -8,36 +8,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for cache strategies with focused implementation guidance and validation.
+description: Implement reliable Laravel async workflows (queues/events/cache) with idempotency and failure handling. Use for cache strategies tasks.
 ---
 
 # Cache Strategies (Laravel)
 
 ## Use when
-- The task explicitly involves cache strategies in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Offloading heavy work to queues/events/cache workflows.
+- Stabilizing retries, idempotency, and failure handling.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Define async payload contract and idempotency strategy.
+2. Implement handler/job with explicit retry/backoff behavior.
+2. Configure observability and failure handling.
+2. Verify dispatch + execution + failure paths with tests.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
+- Do not pass oversized mutable payloads.
+- Assume at-least-once delivery and code for safe retries.
+- Instrument failures and dead-letter handling.
 
 ## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- Async components changed and queue/cache strategy.
+- Retry/backoff/failure decisions.
+- Validation evidence for success and failure paths.
 
 ## References
 - `reference.md`

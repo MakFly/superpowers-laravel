@@ -1,19 +1,22 @@
-# Laravel Migrations Reference
+# Migrations Reference (Laravel)
 
-## Safe rollout pattern
-1. Add nullable/new columns
-2. Deploy code writing both old/new
-3. Backfill existing rows in chunks
-4. Switch reads to new column
-5. Drop legacy column in later release
+Use this reference for implementation details and review criteria specific to `migrations`.
 
-## Command set
-- `php artisan make:migration ...`
-- `php artisan migrate`
-- `php artisan migrate:rollback --step=1`
-- `php artisan schema:dump` (if adopted)
 
-## Review checklist
-- indexes for new query paths
-- FK names explicit on critical tables
-- down() behavior documented when irreversible
+## Skill Operating Checklist
+
+### Design checklist
+- Confirm scope boundaries before editing.
+- Preserve backward compatibility unless task says otherwise.
+- Validate negative paths, not only happy path.
+
+### Validation commands
+- php artisan migrate
+- php artisan migrate:rollback --step=1
+- ./vendor/bin/pest tests/Feature
+
+### Failure modes to test
+- Invalid input or unauthorized actor.
+- Partial failure / retry scenario (if async or multi-step).
+- Boundary values and empty-state behavior.
+

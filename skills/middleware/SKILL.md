@@ -8,36 +8,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for middleware with focused implementation guidance and validation.
+description: Strengthen Laravel validation/auth/authorization boundaries with explicit failure-safe implementation patterns. Use for middleware tasks.
 ---
 
 # Middleware (Laravel)
 
 ## Use when
-- The task explicitly involves middleware in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Hardening authentication/authorization/validation paths.
+- Standardizing access control and error semantics.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Map actors, protected resources, and allowed actions.
+2. Implement validation + authorization at explicit boundaries.
+2. Apply throttling and consistent failure responses.
+2. Test authorized/unauthorized/invalid scenarios.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
+- Do not leak sensitive existence or permission details.
+- Never rely on UI-only access checks.
+- Keep auth and validation logic centralized.
 
 ## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- Security boundary changes and rationale.
+- Endpoints/middleware/policies updated.
+- Negative-path test evidence.
 
 ## References
 - `reference.md`

@@ -8,36 +8,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply RED-GREEN-REFACTOR with PHPUnit in Laravel, focusing on deterministic, maintainable test coverage.
+description: Deliver Laravel behavior safely with test-first workflows and deterministic regression protection. Use for tdd with phpunit tasks.
 ---
 
 # Tdd With Phpunit (Laravel)
 
 ## Use when
-- The task explicitly involves tdd with phpunit in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Implementing new behavior with regression risk.
+- Fixing bugs via reproducible failing tests.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Write a failing test for expected behavior and one edge case.
+2. Implement minimal code to pass.
+2. Refactor for clarity while keeping tests green.
+2. Run targeted tests, then broader suite for impacted modules.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
+- No behavior change without test evidence.
+- Prefer deterministic fixtures and isolated state.
+- Assert business outcomes instead of internals.
 
 ## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- RED/GREEN/REFACTOR summary.
+- Test files changed and command output.
+- Remaining coverage gaps.
 
 ## References
 - `reference.md`

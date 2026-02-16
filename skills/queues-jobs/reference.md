@@ -1,17 +1,22 @@
-# Laravel Queues Reference
+# Queues Jobs Reference (Laravel)
 
-## Reliability checklist
-- `tries`, `timeout`, `backoff`
-- `ShouldQueue` + queue name assignment
-- idempotent `handle()` behavior
-- `failed()` hook behavior
+Use this reference for implementation details and review criteria specific to `queues-jobs`.
 
-## Typical patterns
-- dispatch after commit for DB consistency
-- chunked jobs for large datasets
-- job chaining/batching where ordering matters
 
-## Tests
-- `Queue::fake()` dispatch assertions
-- job handler unit tests
-- failure branch test for retryable/non-retryable errors
+## Skill Operating Checklist
+
+### Design checklist
+- Confirm scope boundaries before editing.
+- Preserve backward compatibility unless task says otherwise.
+- Validate negative paths, not only happy path.
+
+### Validation commands
+- php artisan queue:work --once
+- php artisan queue:failed
+- ./vendor/bin/pest --filter=queue
+
+### Failure modes to test
+- Invalid input or unauthorized actor.
+- Partial failure / retry scenario (if async or multi-step).
+- Boundary values and empty-state behavior.
+

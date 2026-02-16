@@ -7,31 +7,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Build robust Laravel request validation using FormRequest classes, custom rules, and clear domain-safe error contracts.
+description: Strengthen Laravel validation/auth/authorization boundaries with explicit failure-safe implementation patterns. Use for requests validation tasks.
 ---
 
 # Requests Validation (Laravel)
 
 ## Use when
-- Adding or modifying input validation on create/update/search endpoints.
-- Migrating controller-inline validation to FormRequest.
+- Hardening authentication/authorization/validation paths.
+- Standardizing access control and error semantics.
 
 ## Default workflow
-1. Introduce/extend `FormRequest` class per endpoint intent.
-2. Encode rules, normalization, and authorization gate in one place.
-3. Add custom rule objects for reusable domain constraints.
-4. Standardize validation error payload shape.
-5. Cover valid/invalid payload permutations with feature tests.
+1. Map actors, protected resources, and allowed actions.
+2. Implement validation + authorization at explicit boundaries.
+2. Apply throttling and consistent failure responses.
+2. Test authorized/unauthorized/invalid scenarios.
 
 ## Guardrails
-- Do not duplicate rules across controllers/services.
-- Prefer explicit whitelisting over permissive arrays.
-- Keep cross-field constraints in custom rules or after hooks.
+- Do not leak sensitive existence or permission details.
+- Never rely on UI-only access checks.
+- Keep auth and validation logic centralized.
+
+## Progressive disclosure
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- FormRequest and rule changes.
-- Error contract behavior.
-- Test coverage and failures prevented.
+- Security boundary changes and rationale.
+- Endpoints/middleware/policies updated.
+- Negative-path test evidence.
 
 ## References
 - `reference.md`

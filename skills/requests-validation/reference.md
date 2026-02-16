@@ -1,18 +1,22 @@
-# Laravel Validation Reference
+# Requests Validation Reference (Laravel)
 
-## FormRequest skeleton
-- `rules()` for constraints
-- `authorize()` for access
-- `prepareForValidation()` for normalization
-- `messages()`/`attributes()` for UX-safe responses
+Use this reference for implementation details and review criteria specific to `requests-validation`.
 
-## Common advanced patterns
-- conditional rules (`required_if`, `exclude_unless`)
-- cross-field checks in `withValidator()->after(...)`
-- custom `Rule` classes for domain constraints
 
-## Tests
-- valid payload accepted
-- missing required fields rejected
-- malformed types rejected
-- unauthorized request rejected
+## Skill Operating Checklist
+
+### Design checklist
+- Confirm scope boundaries before editing.
+- Preserve backward compatibility unless task says otherwise.
+- Validate negative paths, not only happy path.
+
+### Validation commands
+- php artisan route:list
+- ./vendor/bin/pest tests/Feature --filter=auth
+- php artisan test --filter=policy
+
+### Failure modes to test
+- Invalid input or unauthorized actor.
+- Partial failure / retry scenario (if async or multi-step).
+- Boundary values and empty-state behavior.
+

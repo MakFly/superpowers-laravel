@@ -8,36 +8,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for livewire with focused implementation guidance and validation.
+description: Ship Laravel UI integration changes (Livewire/Inertia) with stable contracts and predictable state behavior. Use for livewire tasks.
 ---
 
 # Livewire (Laravel)
 
 ## Use when
-- The task explicitly involves livewire in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Delivering Livewire/Inertia behavior tied to Laravel backend contracts.
+- Fixing UI-server integration and state flow issues.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Identify component/page contract and server-side dependencies.
+2. Implement minimal UI/backend changes along existing patterns.
+2. Validate state transitions, validation messages, and permissions.
+2. Run focused integration checks for affected flow.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
+- Preserve existing UX patterns unless explicitly asked.
+- Keep state shape and payload contracts explicit.
+- Avoid coupling view logic with heavy business rules.
 
 ## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- UI/backend integration points changed.
+- Contract updates and validation results.
+- Known UX or edge-case risks.
 
 ## References
 - `reference.md`

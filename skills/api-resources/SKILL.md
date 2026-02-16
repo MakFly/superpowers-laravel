@@ -7,31 +7,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Design and implement Laravel API Resources as stable response contracts with predictable shape, conditional fields, and relationship loading discipline.
+description: Apply production-grade Laravel architecture and execution discipline for focused, low-risk delivery. Use for api resources tasks.
 ---
 
-# API Resources (Laravel)
+# Api Resources (Laravel)
 
 ## Use when
-- Creating or changing JSON response contracts.
-- Replacing ad-hoc controller arrays with consistent resource classes.
+- Refining project structure, services/providers, or execution strategy.
+- Planning/executing medium-to-complex implementation steps.
 
 ## Default workflow
-1. Define response contract first (required fields, nullable fields, relationship blocks).
-2. Implement `JsonResource`/`ResourceCollection` for each contract boundary.
-3. Use `whenLoaded`, `when`, `mergeWhen` for conditional fields.
-4. Ensure controller/query layer eager-loads exactly what resource requires.
-5. Add feature tests that assert JSON structure and key invariants.
+1. Map current boundaries and constraints before edits.
+2. Design smallest coherent architectural adjustment.
+2. Implement in vertical slices with checkpoint validation.
+2. Summarize tradeoffs and follow-up actions.
 
 ## Guardrails
-- Avoid leaking internal DB fields.
-- Keep formatting logic in resources, not controllers.
-- Avoid triggering lazy loads inside resources.
+- Prefer project conventions over novel abstractions.
+- Avoid scope creep outside requested objective.
+- Keep orchestration deterministic and reviewable.
+
+## Progressive disclosure
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- Resource classes introduced/updated.
-- Controller/query changes for loading strategy.
-- JSON contract tests and outcomes.
+- Boundary/structure updates.
+- Checkpoint commands and outcomes.
+- Tradeoffs and residual risks.
 
 ## References
 - `reference.md`

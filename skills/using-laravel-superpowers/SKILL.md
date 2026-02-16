@@ -5,36 +5,34 @@ allowed-tools:
   - Read
   - Glob
   - Grep
-description: Apply production-grade Laravel practices for using laravel superpowers with focused implementation guidance and validation.
+description: Apply production-grade Laravel architecture and execution discipline for focused, low-risk delivery. Use for using laravel superpowers tasks.
 ---
 
 # Using Laravel Superpowers (Laravel)
 
 ## Use when
-- The task explicitly involves using laravel superpowers in a Laravel codebase.
-- You need targeted guidance with minimal detours.
+- Refining project structure, services/providers, or execution strategy.
+- Planning/executing medium-to-complex implementation steps.
 
 ## Default workflow
-1. Discover current constraints and existing patterns before editing.
-2. Implement the smallest change that satisfies the requested behavior.
-3. Validate with the strongest fast checks available in this repository.
-4. Summarize changed files, verification, and remaining risk.
+1. Map current boundaries and constraints before edits.
+2. Design smallest coherent architectural adjustment.
+2. Implement in vertical slices with checkpoint validation.
+2. Summarize tradeoffs and follow-up actions.
 
 ## Guardrails
-- Keep changes minimal and focused on the active task.
-- Reuse project conventions over introducing new architecture.
-- Prefer deterministic checks over speculative changes.
-- If behavior is unclear, surface assumptions explicitly before broad refactors.
+- Prefer project conventions over novel abstractions.
+- Avoid scope creep outside requested objective.
+- Keep orchestration deterministic and reviewable.
 
 ## Progressive disclosure
-- Start with this file.
-- Load references only when needed for implementation details.
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- What changed.
-- Why this approach was selected.
-- What was validated (command + outcome).
-- Any residual risk or follow-up.
+- Boundary/structure updates.
+- Checkpoint commands and outcomes.
+- Tradeoffs and residual risks.
 
 ## References
 - `reference.md`

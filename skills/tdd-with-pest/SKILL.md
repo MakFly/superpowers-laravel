@@ -7,31 +7,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Drive Laravel feature development with Pest using strict RED-GREEN-REFACTOR loops and high-signal test design.
+description: Deliver Laravel behavior safely with test-first workflows and deterministic regression protection. Use for tdd with pest tasks.
 ---
 
-# TDD with Pest (Laravel)
+# Tdd With Pest (Laravel)
 
 ## Use when
-- Implementing new behavior where regressions are costly.
-- Fixing bugs with reproducible failing tests.
+- Implementing new behavior with regression risk.
+- Fixing bugs via reproducible failing tests.
 
 ## Default workflow
-1. Write a failing Pest test that captures expected behavior and edge case.
-2. Implement minimal code to make the test pass.
-3. Refactor for readability/design without changing behavior.
-4. Expand test coverage for boundary cases and authorization/validation paths.
-5. Run targeted then broader suite.
+1. Write a failing test for expected behavior and one edge case.
+2. Implement minimal code to pass.
+2. Refactor for clarity while keeping tests green.
+2. Run targeted tests, then broader suite for impacted modules.
 
 ## Guardrails
-- No implementation before a failing test (except setup scaffolding).
-- Keep tests deterministic and isolated.
-- Avoid asserting implementation details over behavior.
+- No behavior change without test evidence.
+- Prefer deterministic fixtures and isolated state.
+- Assert business outcomes instead of internals.
+
+## Progressive disclosure
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- RED test introduced.
-- GREEN implementation summary.
-- REFACTOR changes and final validation results.
+- RED/GREEN/REFACTOR summary.
+- Test files changed and command output.
+- Remaining coverage gaps.
 
 ## References
 - `reference.md`

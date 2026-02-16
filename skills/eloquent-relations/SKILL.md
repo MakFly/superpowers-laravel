@@ -7,31 +7,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Model and optimize Laravel Eloquent relationships with correct cardinality, constraints, eager loading, and query performance.
+description: Model and evolve Laravel data structures safely with integrity, performance, and rollout-aware migrations. Use for eloquent relations tasks.
 ---
 
 # Eloquent Relations (Laravel)
 
 ## Use when
-- Designing new model relationships.
-- Fixing N+1 issues or incorrect relation semantics.
+- Designing schema/relations or data lifecycle changes.
+- Improving query performance and integrity guarantees.
 
 ## Default workflow
-1. Define cardinality and ownership (`hasOne`, `hasMany`, `belongsTo`, `morph*`).
-2. Encode FK constraints and cascading rules in migrations.
-3. Implement relation methods with explicit keys where non-standard.
-4. Optimize query paths with eager loading and constrained loads.
-5. Add tests validating relation integrity and serialization behavior.
+1. Define domain ownership/cardinality and compatibility constraints.
+2. Apply additive-safe schema/relationship changes first.
+2. Update query loading/index strategy for affected paths.
+2. Validate migration/relation behavior and rollback posture.
 
 ## Guardrails
-- Avoid hidden lazy loads in loops/resources.
-- Keep relation naming consistent and domain-meaningful.
-- Ensure DB constraints match model intent.
+- Preserve data integrity with constraints and transactions where needed.
+- Avoid destructive one-step production migrations.
+- Eliminate hidden N+1 in hot paths.
+
+## Progressive disclosure
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- Relations and schema changes.
-- Performance considerations applied.
-- Tests for integrity and query behavior.
+- Schema/model/relation changes.
+- Migration sequencing and rollback notes.
+- Validation commands and observed outcomes.
 
 ## References
 - `reference.md`

@@ -543,3 +543,22 @@ public function deleteVehicle($id)
     </div>
 </div>
 ```
+
+
+## Skill Operating Checklist
+
+### Design checklist
+- Confirm scope boundaries before editing.
+- Preserve backward compatibility unless task says otherwise.
+- Validate negative paths, not only happy path.
+
+### Validation commands
+- php artisan test --filter=Feature
+- npm test -- --watch=false
+- ./vendor/bin/pest --filter=inertia
+
+### Failure modes to test
+- Invalid input or unauthorized actor.
+- Partial failure / retry scenario (if async or multi-step).
+- Boundary values and empty-state behavior.
+

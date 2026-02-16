@@ -1,24 +1,22 @@
-# Laravel API Authentication Reference
+# Api Authentication Reference (Laravel)
 
-## Detection checklist
-- `config/auth.php` guards/providers
-- `config/sanctum.php` or Passport/JWT packages
-- route groups in `routes/api.php`
+Use this reference for implementation details and review criteria specific to `api-authentication`.
 
-## Baseline endpoint set
-- `POST /auth/login`
-- `POST /auth/logout`
-- `POST /auth/refresh` (if refresh-token model)
-- `GET /auth/me`
 
-## Security controls
-- `RateLimiter::for('login', ...)`
-- consistent auth error payloads
-- token revocation on logout
-- revoke all sessions/tokens on sensitive credential changes
+## Skill Operating Checklist
 
-## Test matrix
-- login success/fail
-- throttled login
-- access protected route without auth
-- access protected route with invalid/revoked token
+### Design checklist
+- Confirm scope boundaries before editing.
+- Preserve backward compatibility unless task says otherwise.
+- Validate negative paths, not only happy path.
+
+### Validation commands
+- php artisan route:list
+- ./vendor/bin/pest tests/Feature --filter=auth
+- php artisan test --filter=policy
+
+### Failure modes to test
+- Invalid input or unauthorized actor.
+- Partial failure / retry scenario (if async or multi-step).
+- Boundary values and empty-state behavior.
+

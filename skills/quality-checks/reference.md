@@ -1,18 +1,22 @@
-# Laravel Quality Checks Reference
+# Quality Checks Reference (Laravel)
 
-## Preferred gate order
-1. `composer validate`
-2. static analysis (`phpstan`/project script)
-3. tests (`pest` or `php artisan test`)
-4. style (`pint --test` or fixer dry-run)
+Use this reference for implementation details and review criteria specific to `quality-checks`.
 
-## Reporting format
-- command
-- status
-- key failing file/test
-- suggested first fix
 
-## Typical blockers
-- stale snapshots/fixtures
-- env-dependent tests
-- static analysis baseline drift
+## Skill Operating Checklist
+
+### Design checklist
+- Confirm scope boundaries before editing.
+- Preserve backward compatibility unless task says otherwise.
+- Validate negative paths, not only happy path.
+
+### Validation commands
+- rg --files
+- composer validate
+- ./vendor/bin/pest --filter=...
+
+### Failure modes to test
+- Invalid input or unauthorized actor.
+- Partial failure / retry scenario (if async or multi-step).
+- Boundary values and empty-state behavior.
+

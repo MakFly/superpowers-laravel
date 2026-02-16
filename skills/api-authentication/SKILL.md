@@ -7,33 +7,34 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-description: Implement secure Laravel API authentication flows (token/session, refresh, revocation) with explicit threat-aware validation and tests.
+description: Strengthen Laravel validation/auth/authorization boundaries with explicit failure-safe implementation patterns. Use for api authentication tasks.
 ---
 
-# API Authentication (Laravel)
+# Api Authentication (Laravel)
 
 ## Use when
-- Building or fixing login/register/logout/refresh endpoints.
-- Hardening token lifecycle, guards, or auth middleware behavior.
+- Hardening authentication/authorization/validation paths.
+- Standardizing access control and error semantics.
 
 ## Default workflow
-1. Identify active auth stack (Sanctum, Passport, JWT, session) from config and routes.
-2. Define auth contract: login input, issued token/session shape, expiration, revocation.
-3. Enforce validation + throttling + lockout behavior.
-4. Implement guard-safe flows (web/api separation) and standardized auth errors.
-5. Add feature tests for success, invalid creds, expired/revoked token, unauthorized access.
+1. Map actors, protected resources, and allowed actions.
+2. Implement validation + authorization at explicit boundaries.
+2. Apply throttling and consistent failure responses.
+2. Test authorized/unauthorized/invalid scenarios.
 
 ## Guardrails
-- Never leak whether email/username exists.
-- Rotate refresh credentials where supported.
-- Revoke tokens on logout/password reset events.
-- Apply rate limiting on auth endpoints.
+- Do not leak sensitive existence or permission details.
+- Never rely on UI-only access checks.
+- Keep auth and validation logic centralized.
+
+## Progressive disclosure
+- Start with this file for execution posture and constraints.
+- Load references only for deep implementation detail or edge cases.
 
 ## Output contract
-- Auth scheme detected and chosen behavior.
-- Endpoints/middleware changed.
-- Tests added/updated and command results.
-- Remaining risk (session fixation, replay windows, etc.).
+- Security boundary changes and rationale.
+- Endpoints/middleware/policies updated.
+- Negative-path test evidence.
 
 ## References
 - `reference.md`
