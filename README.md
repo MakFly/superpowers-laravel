@@ -13,7 +13,7 @@ claude plugins add superpowers-laravel
 ### Manual install (git clone)
 
 ```bash
-git clone https://github.com/MakFly/superpowers-laravel.git ~/.claude/plugins/superpowers-laravel
+git clone https://github.com/dev-toolings/superpowers-laravel.git ~/.claude/plugins/superpowers-laravel
 ```
 
 Enable the plugin in both configs (Claude + GLM):
